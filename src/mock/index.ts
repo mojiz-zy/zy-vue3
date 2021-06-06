@@ -29,7 +29,7 @@ mock.onPost("login").reply((c) => {
     ];
   }
   // 模拟主任
-  if (number == "1002" && password == "1002") {
+  /*if (number == "1002" && password == "1002") {
     return [
       200,
       resultVO,
@@ -39,7 +39,7 @@ mock.onPost("login").reply((c) => {
           "744193c872b677aab12a0ced447882f4cf9fca92a09d428a26ed145ed2ed2eec665c8824ebc353042ba2be136efcb5c6",
       },
     ];
-  }
+  }*/
   // 模拟admin
   if (number == "2002" && password == "2002") {
     return [
