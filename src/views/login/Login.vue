@@ -4,7 +4,7 @@
       <p>teacher: 1001; director: 1002; admin: 2002</p>
       <div class="head">
         <h1 class="title">Login</h1>
-        <div class="tips">实验室预约系统</div>
+        <!-- <div class="tips">实验室预约系统</div> -->
       </div>
       <el-form
         label-position="top"
@@ -12,7 +12,7 @@
         :model="loginForm"
         ref="loginForm"
       >
-        <el-form-item label="密码" prop="user.number">
+        <el-form-item label="账户" prop="user.number">
           <el-input autocomplete="off" type="text" v-model="user.number" />
         </el-form-item>
         <el-form-item label="密码" prop="password">
@@ -87,10 +87,10 @@ export default defineComponent({
   color: #1baeae;
   font-weight: bold;
 }
-.head .tips {
+/* .head .tips {
   font-size: 12px;
   color: #999;
-}
+} */
 .login-form {
   width: 70%;
   margin: 0 auto;
