@@ -5,20 +5,31 @@ import * as types from "./VuexTypes";
 import axios from "@/axios";
 import { ResultVO } from "./Response";
 import { setRole } from "@/role/Role";
+import { Teacher, Lab } from "@/datasource/Type";
 
 export interface State {
   menuList?: Menu[];
   exception?: string;
+  teacherList?: Teacher[];
+  labList?: Lab[];
 }
 
 const state: State = {
   menuList: [],
   exception: "",
+  teacherList: [],
+  labList: []
 };
 
 const getters = {
   premission: () => (level: string[]) =>
-    level.some((l) => l == sessionStorage.getItem("role")),
+    level.some(l => l == sessionStorage.getItem("role"))
+};
+const mutations = {
+  // [types.UPDATE_EXCEPTION]: (state: State, data: string) => (state.exception = data),
+  [types.LIST_TEACHERS]: (state: State, data: Teacher) =>
+    state.teacherList?.push(data),
+  [types.SET_LABLIST]: (state: State, data: Lab[]) => (state.labList = data)
 };
 const actions: ActionTree<State, State> = {
   [types.LOGIN]: async (_, data: any) => {
@@ -31,13 +42,19 @@ const actions: ActionTree<State, State> = {
       setRole(roleId);
       sessionStorage.setItem("role", roleId);
       sessionStorage.setItem("token", resp.headers.token);
-      router.push("/main");
+      router.push("/teacherhome");
     }
   },
+  [types.GET_LABLIST]: async ({ commit }) => {
+    // const resp = await axios.get("api/lablist");
+    const resp = await axios.get("lablist");
+    commit(types.SET_LABLIST, resp.data.data.labs);
+  }
 };
 
 export default createStore({
   state: state,
+  mutations: mutations,
   actions: actions,
-  getters: getters,
+  getters: getters
 });

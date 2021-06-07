@@ -4,7 +4,7 @@
     <el-header>
       <div>
         <img src="D:\vue-workspace\zy-vue3\src\assets\logo.png" alt="" />
-        <span>实验室预约系统</span>
+        <span>实验室预约系统管理</span>
       </div>
       <el-button type="info" @click="logout">loginout</el-button>
     </el-header>
@@ -45,7 +45,7 @@ export default defineComponent({
 .el-main {
   background-color: #eaedf1;
 }
-.main-container {
-  height: 100vh;
+.mian-container {
+  height: 100%;
 }
 </style>

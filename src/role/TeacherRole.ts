@@ -28,8 +28,12 @@ const routes: Array<RouteRecordRaw> = [
 
 const menuList: Menu[] = [
   {
-    title: "学生管理模块",
+    title: "教师功能模块",
     children: [
+      {
+        title: "预约管理",
+        path: "/main"
+      },
       {
         title: "学生管理",
         path: "/teacher/students"
