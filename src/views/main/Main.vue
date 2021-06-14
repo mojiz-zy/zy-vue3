@@ -1,4 +1,5 @@
 <template>
+  <title>Main</title>
   <el-container class="main-container">
     <!-- 头部 -->
     <el-header>
@@ -12,7 +13,9 @@
       <!-- 侧边栏 -->
       <sidebar />
       <!-- 右侧内容主题去 -->
-      <el-main>Main</el-main>
+      <el-main>
+        <router-view />
+      </el-main>
     </el-container>
   </el-container>
   <!-- <div>

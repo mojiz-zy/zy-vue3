@@ -12,7 +12,9 @@
       <!-- 侧边栏 -->
       <sidebar />
       <!-- 右侧内容主题去 -->
-      <el-main>Main</el-main>
+      <el-main>
+        <h1>teacherhome</h1>
+      </el-main>
     </el-container>
   </el-container>
   <!-- <div>

@@ -8,9 +8,13 @@ const routes: Array<RouteRecordRaw> = [
     path: "/main",
     component: () => import("@/views/main/Main.vue"),
     children: [
+      // {
+      //   path: "",
+      //   component: () => import("@/views/main/teacher/TeacherHome.vue")
+      // },
       {
-        path: "",
-        component: () => import("@/views/main/teacher/TeacherHome.vue")
+        path: "/reservation",
+        component: () => import("@/views/main/teacher/Reservation.vue")
       },
       {
         path: "/teacher/students",
@@ -32,7 +36,7 @@ const menuList: Menu[] = [
     children: [
       {
         title: "预约管理",
-        path: "/main"
+        path: "/reservation"
       },
       {
         title: "学生管理",
