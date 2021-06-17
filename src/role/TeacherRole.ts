@@ -23,6 +23,37 @@ const routes: Array<RouteRecordRaw> = [
     ]
   },
   {
+    path: "/course",
+    component: () => import("@/views/main/teacher/course.vue"),
+    children: [
+      {
+        path: "add",
+        component: () => import("@/components/addCourse.vue")
+      },
+      {
+        path: "",
+        component: () => import("@/components/editCourse.vue")
+      },
+      {
+        path: "edit",
+        component: () => import("@/components/courseEditSon.vue")
+      },
+      {
+        path: "delete",
+        component: () => import("@/components/delCourse.vue")
+      },
+      {
+        path: "courseLabList",
+        component: () => import("@/components/courseLabList.vue")
+      },
+      {
+        path: "courseLabReserve",
+        component: () => import("@/components/courseLabReserve.vue")
+      }
+    ]
+  },
+
+  {
     path: "/:pathMatch(.*)*",
     redirect: { name: "main" }
   }
