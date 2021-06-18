@@ -35,7 +35,7 @@ export default defineComponent({
   methods: {
     handleSelect(key: any, keyPath: any) {
       console.log(key, keyPath);
-    },
+    }
   },
   setup() {
     const store = useStore<State>();
@@ -47,7 +47,7 @@ export default defineComponent({
     const router = useRouter();
     const password = ref("");
     const labNum = route.query.labNum;
-    labList.value?.forEach((l) => {
+    labList.value?.forEach(l => {
       if (l.number == labNum) {
         lab.value.number = l.number;
         lab.value.computerNumber = l.computerNumber;
@@ -56,15 +56,15 @@ export default defineComponent({
     const update = () => {
       store.dispatch(types.UPDATE_LAB, lab.value);
     };
-    const back = () =>{
-      router.push("/labManage")
-    }
+    const back = () => {
+      router.push("/labManage");
+    };
     return {
       back,
       update,
       lab,
-      password,
+      password
     };
-  },
+  }
 });
 </script>

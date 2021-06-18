@@ -8,13 +8,57 @@ const routes: Array<RouteRecordRaw> = [
     path: "/main",
     component: () => import("@/views/main/Main.vue"),
     children: [
-      // {
-      //   path: "",
-      //   component: () => import("@/views/main/teacher/TeacherHome.vue")
-      // },
       {
-        path: "/reservation",
-        component: () => import("@/views/main/teacher/Reservation.vue")
+        path: "",
+        component: () => import("@/views/main/teacher/TeacherHome.vue")
+      },
+      {
+        path: "/teacher/labManage",
+        component: () => import("@/views/main/teacher/labReserve.vue"),
+        children: [
+          {
+            path: "",
+            component: () => import("@/views/main/teacher/labList.vue")
+          },
+          {
+            path: "oneReserve",
+            component: () => import("@/components/labOneReserve.vue")
+          },
+          {
+            path: "showSchedule",
+            component: () => import("@/components/showSchedule.vue")
+          },
+          {
+            path: "/teacher/courseManage",
+            component: () => import("@/views/main/teacher/courseManage.vue"),
+            children: [
+              {
+                path: "add",
+                component: () => import("@/components/addCourse.vue")
+              },
+              {
+                path: "",
+                component: () => import("@/components/editCourse.vue")
+              },
+              {
+                path: "edit",
+                component: () => import("@/components/courseEditSon.vue")
+              },
+              {
+                path: "delete",
+                component: () => import("@/components/delCourse.vue")
+              },
+              {
+                path: "courseLabList",
+                component: () => import("@/components/courseLabList.vue")
+              },
+              {
+                path: "courseLabReserve",
+                component: () => import("@/components/courseLabReserve.vue")
+              }
+            ]
+          }
+        ]
       },
       {
         path: "/teacher/students",
@@ -22,36 +66,36 @@ const routes: Array<RouteRecordRaw> = [
       }
     ]
   },
-  {
-    path: "/course",
-    component: () => import("@/views/main/teacher/course.vue"),
-    children: [
-      {
-        path: "add",
-        component: () => import("@/components/addCourse.vue")
-      },
-      {
-        path: "",
-        component: () => import("@/components/editCourse.vue")
-      },
-      {
-        path: "edit",
-        component: () => import("@/components/courseEditSon.vue")
-      },
-      {
-        path: "delete",
-        component: () => import("@/components/delCourse.vue")
-      },
-      {
-        path: "courseLabList",
-        component: () => import("@/components/courseLabList.vue")
-      },
-      {
-        path: "courseLabReserve",
-        component: () => import("@/components/courseLabReserve.vue")
-      }
-    ]
-  },
+  // {
+  //   path: "/teacher/courseManage",
+  //   component: () => import("@/views/main/teacher/courseManage.vue"),
+  //   children: [
+  //     {
+  //       path: "add",
+  //       component: () => import("@/components/addCourse.vue")
+  //     },
+  //     {
+  //       path: "",
+  //       component: () => import("@/components/editCourse.vue")
+  //     },
+  //     {
+  //       path: "edit",
+  //       component: () => import("@/components/courseEditSon.vue")
+  //     },
+  //     {
+  //       path: "delete",
+  //       component: () => import("@/components/delCourse.vue")
+  //     },
+  //     {
+  //       path: "courseLabList",
+  //       component: () => import("@/components/courseLabList.vue")
+  //     },
+  //     {
+  //       path: "courseLabReserve",
+  //       component: () => import("@/components/courseLabReserve.vue")
+  //     }
+  //   ]
+  // },
 
   {
     path: "/:pathMatch(.*)*",
@@ -66,12 +110,12 @@ const menuList: Menu[] = [
     title: "教师功能模块",
     children: [
       {
-        title: "预约管理",
-        path: "/reservation"
+        title: "课程预约管理",
+        path: "/teacher/courseManage"
       },
       {
-        title: "学生管理",
-        path: "/teacher/students"
+        title: "实验室预约管理",
+        path: "/teacher/labManage"
       }
     ]
   }

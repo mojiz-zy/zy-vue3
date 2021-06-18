@@ -64,8 +64,8 @@ export default defineComponent({
     const options3 = [];
     const state = ref(true);
     const value1 = ref(false);
-    const queryState = function () {
-      store.state.labList!.forEach((lab) => {
+    const queryState = function() {
+      store.state.labList!.forEach(lab => {
         if (labNum == lab.number) {
           lab.schedule.forEach((s: any) => {
             for (
@@ -102,7 +102,7 @@ export default defineComponent({
       }
     };
     const ApplyOrder = () => {
-      store.state.labList!.forEach((lab) => {
+      store.state.labList!.forEach(lab => {
         if (labNum == lab.number) {
           console.log("ApplyOrder", lab.schedule);
           lab.schedule.forEach((s: any) => {
@@ -114,7 +114,7 @@ export default defineComponent({
               if (s.week == i && s.day == day.value && s.order == order.value) {
                 state.value = false;
                 toRaw(s).state = false;
-                store.state.courses?.forEach((c) => {
+                store.state.courses?.forEach(c => {
                   if (
                     courseId == c.courseId &&
                     c.teacherNum == sessionStorage.getItem("teacherNum")
@@ -131,7 +131,7 @@ export default defineComponent({
       store.dispatch(SUBMIT_LABLIST, store.state.labList);
       ElMessage.success({
         message: "预约成功！",
-        type: "success",
+        type: "success"
       });
     };
     for (let i = 1; i < 19; i++) {
@@ -170,8 +170,8 @@ export default defineComponent({
       state,
       //   ApplyOrder,
       Query,
-      ApplyOrder,
+      ApplyOrder
     };
-  },
+  }
 });
 </script>

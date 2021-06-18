@@ -8,6 +8,6 @@ import { State } from "@/store";
 export default defineComponent({
   setup() {
     return;
-  },
+  }
 });
 </script>

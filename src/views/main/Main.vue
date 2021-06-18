@@ -4,7 +4,7 @@
     <!-- 头部 -->
     <el-header>
       <div>
-        <img src="D:\vue-workspace\zy-vue3\src\assets\logo.png" alt="" />
+        <img src="" alt="" />
         <span>实验室预约系统</span>
       </div>
       <el-button type="info" @click="logout">loginout</el-button>

@@ -61,26 +61,26 @@ export default defineComponent({
         {
           confirmButtonText: "确定",
           cancelButtonText: "取消",
-          inputErrorMessage: "格式不正确",
+          inputErrorMessage: "格式不正确"
         }
       )
         .then(({ value }: any) => {
           if (value >= 1 && value <= 18) {
             router.push({
               path: "/labReserve/showSchedule",
-              query: { labNum: labNum.value, weekInput: value },
+              query: { labNum: labNum.value, weekInput: value }
             });
           } else {
             ElMessage({
               type: "warning",
-              message: "请输入1-18中的任意数字",
+              message: "请输入1-18中的任意数字"
             });
           }
         })
         .catch(() => {
           ElMessage({
             type: "info",
-            message: "取消输入",
+            message: "取消输入"
           });
         });
     };
@@ -103,7 +103,7 @@ export default defineComponent({
       const row = toRaw(scope.row); //将Proxy代理对象转换为源对象
       router.push({
         path: "/labReserve/oneReserve",
-        query: { labNum: row.number },
+        query: { labNum: row.number }
       });
     };
     const querySchedule = (scope: any) => {
@@ -122,9 +122,9 @@ export default defineComponent({
       options,
       OneReserve,
       active,
-      tableData,
+      tableData
     };
-  },
+  }
 });
 </script>
 <style scoped>

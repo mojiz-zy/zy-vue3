@@ -33,18 +33,18 @@ export default defineComponent({
     const tableData = computed(() => {
       return store.state.teacherList;
     });
-    
+
     const EditRow = (i: any) => {
       console.log(i);
       router.push({
         path: "/teacherManage/edit",
-        query: { teacherNum: i },
+        query: { teacherNum: i }
       });
     };
     return {
       EditRow,
-      tableData,
+      tableData
     };
-  },
+  }
 });
 </script>

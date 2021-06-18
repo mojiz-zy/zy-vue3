@@ -20,41 +20,40 @@
   </el-table>
 </template>
 <script lang="ts">
-import { computed, defineComponent,ref } from 'vue'
-import {State} from '@/store'
-import {useStore} from 'vuex'
-import * as types from '@/store/VuexTypes'
+import { computed, defineComponent, ref } from "vue";
+import { State } from "@/store";
+import { useStore } from "vuex";
+import * as types from "@/store/VuexTypes";
 import router from "@/router";
-import { toRaw} from '@vue/reactivity' //将Proxy代理对象转换为源对象
-import { useRoute } from 'vue-router';
-import {Lab} from '@/datasource/Type'
+import { toRaw } from "@vue/reactivity"; //将Proxy代理对象转换为源对象
+import { useRoute } from "vue-router";
+import { Lab } from "@/datasource/Type";
 export default defineComponent({
-    setup() {
-        const store =useStore<State>();
-        const route = useRoute();
-        const studentNum = route.query.studentNum;
-        const courseId = route.query.courseId;
-        const courseLabList : Lab[] = [];
-        store.state.labList?.forEach( (l:any) =>{
-          if(l.computerNumber >= Number(studentNum)){
-            courseLabList.push(l);
-          }
-        })
-        const tableData = computed(() =>{
-            return courseLabList});
-        const CourseReserve = (scope : any) => {
-            const row = toRaw(scope.row) //将Proxy代理对象转换为源对象
-            router.push(
-                {
-                    path:"/courseManage/courseLabReserve",
-                    query :{labNum:row.number,courseId:courseId}    
-                })
-            
-        }
-        return{
-            CourseReserve,
-            tableData,
-        }
-    },
-})
+  setup() {
+    const store = useStore<State>();
+    const route = useRoute();
+    const studentNum = route.query.studentNum;
+    const courseId = route.query.courseId;
+    const courseLabList: Lab[] = [];
+    store.state.labList?.forEach((l: any) => {
+      if (l.computerNumber >= Number(studentNum)) {
+        courseLabList.push(l);
+      }
+    });
+    const tableData = computed(() => {
+      return courseLabList;
+    });
+    const CourseReserve = (scope: any) => {
+      const row = toRaw(scope.row); //将Proxy代理对象转换为源对象
+      router.push({
+        path: "/courseManage/courseLabReserve",
+        query: { labNum: row.number, courseId: courseId }
+      });
+    };
+    return {
+      CourseReserve,
+      tableData
+    };
+  }
+});
 </script>

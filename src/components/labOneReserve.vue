@@ -36,7 +36,7 @@ import { useStore } from "vuex";
 import { State } from "@/store";
 import { useRoute } from "vue-router"; //必须引入useRoute才能使用route
 import { ElMessage } from "element-plus";
-import { toRaw} from '@vue/reactivity';
+import { toRaw } from "@vue/reactivity";
 import { SUBMIT_LABLIST } from "@/store/VuexTypes";
 export default defineComponent({
   setup() {
@@ -52,8 +52,8 @@ export default defineComponent({
     const options3 = [];
     const state = ref(true);
     const value1 = ref(false);
-    const queryState = function () {
-      store.state.labList!.forEach((lab) => {
+    const queryState = function() {
+      store.state.labList!.forEach(lab => {
         if (labNum == lab.number) {
           lab.schedule.forEach((s: any) => {
             if (
@@ -61,7 +61,7 @@ export default defineComponent({
               s.day == time.day &&
               s.order == time.order
             ) {
-              console.log('queryState',store.state.labList);
+              console.log("queryState", store.state.labList);
 
               state.value = s.state;
             }
@@ -80,32 +80,32 @@ export default defineComponent({
       }
     };
     const ApplyOrder = () => {
-      if(week.value && day.value && order.value){
-        store.state.labList!.forEach((lab) => {
-        if (labNum == lab.number) {
-          lab.schedule.forEach((s: any) => {
-            if (
-              s.week == time.week &&
-              s.day == time.day &&
-              s.order == time.order
-            ) {
-              state.value = false;
-              toRaw(s).state = false;
-              toRaw(s).course = "临时预约";
-              console.log("提交预约申请后",store.state.labList);
-              store.dispatch(SUBMIT_LABLIST,store.state.labList)
-              ElMessage.success({
-                message: "预约成功！",
-                type: "success",
-              });
-              // alert("预约成功")
-            }
-          });
-        }
-      });}else{
+      if (week.value && day.value && order.value) {
+        store.state.labList!.forEach(lab => {
+          if (labNum == lab.number) {
+            lab.schedule.forEach((s: any) => {
+              if (
+                s.week == time.week &&
+                s.day == time.day &&
+                s.order == time.order
+              ) {
+                state.value = false;
+                toRaw(s).state = false;
+                toRaw(s).course = "临时预约";
+                console.log("提交预约申请后", store.state.labList);
+                store.dispatch(SUBMIT_LABLIST, store.state.labList);
+                ElMessage.success({
+                  message: "预约成功！",
+                  type: "success"
+                });
+                // alert("预约成功")
+              }
+            });
+          }
+        });
+      } else {
         alert("请选择具体时间！例：第几周，星期几，第几节");
       }
-     
     };
     for (let i = 1; i < 19; i++) {
       const option = { week: "", label: "" };
@@ -135,8 +135,8 @@ export default defineComponent({
       day,
       options2,
       options3,
-      options,
+      options
     };
-  },
+  }
 });
 </script>

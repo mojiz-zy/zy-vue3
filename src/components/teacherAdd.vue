@@ -29,47 +29,45 @@ export default defineComponent({
   methods: {
     handleSelect(key: any, keyPath: any) {
       console.log(key, keyPath);
-    },
+    }
   },
   setup() {
     const store = useStore<State>();
     const teacher = ref({
       name: "",
       number: "",
-      title: "",
+      title: ""
     });
     let flag = true;
     const teaList = store.state.teacherList;
     console.log(teaList);
-    
+
     const submit = () => {
-      teaList?.forEach((t) => {
+      teaList?.forEach(t => {
         if (teacher.value.number == t.number) {
           flag = false;
-          alert("教师编号重复，请重新输入")
+          alert("教师编号重复，请重新输入");
         }
       });
       if (
-        (flag ==
-          true &&
-          typeof teacher.value.name == "string" &&
-          typeof teacher.value.number == "string" &&
-          typeof teacher.value.title == "string")
+        flag == true &&
+        typeof teacher.value.name == "string" &&
+        typeof teacher.value.number == "string" &&
+        typeof teacher.value.title == "string"
       ) {
         store.commit(types.LIST_TEACHERS, {
           name: teacher.value.name,
           number: teacher.value.number,
-          title: teacher.value.title,
+          title: teacher.value.title
         } as Teacher);
-        console.log("commit",teaList);
-        
+        console.log("commit", teaList);
       }
       store.dispatch(types.ADD_TEACHERS, teacher.value);
     };
     return {
       teacher,
-      submit,
+      submit
     };
-  },
+  }
 });
 </script>

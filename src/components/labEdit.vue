@@ -33,18 +33,18 @@ export default defineComponent({
       return store.state.labList;
     });
     console.log(tableData);
-    
+
     const EditRow = (i: any) => {
       console.log(i);
       router.push({
         path: "/labManage/edit",
-        query: { labNum: i },
+        query: { labNum: i }
       });
     };
     return {
       EditRow,
-      tableData,
+      tableData
     };
-  },
+  }
 });
 </script>
