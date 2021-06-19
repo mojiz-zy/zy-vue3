@@ -8,12 +8,12 @@ const routes: Array<RouteRecordRaw> = [
     path: "/main",
     component: () => import("@/views/main/Main.vue"),
     children: [
+      // {
+      //   path: "",
+      //   component: () => import("@/views/main/teacher/TeacherHome.vue")
+      // },
       {
-        path: "",
-        component: () => import("@/views/main/teacher/TeacherHome.vue")
-      },
-      {
-        path: "/teacher/labManage",
+        path: "/teacher/labReserve",
         component: () => import("@/views/main/teacher/labReserve.vue"),
         children: [
           {
@@ -29,74 +29,51 @@ const routes: Array<RouteRecordRaw> = [
             component: () => import("@/components/showSchedule.vue")
           },
           {
-            path: "/teacher/courseManage",
-            component: () => import("@/views/main/teacher/courseManage.vue"),
-            children: [
-              {
-                path: "add",
-                component: () => import("@/components/addCourse.vue")
-              },
-              {
-                path: "",
-                component: () => import("@/components/editCourse.vue")
-              },
-              {
-                path: "edit",
-                component: () => import("@/components/courseEditSon.vue")
-              },
-              {
-                path: "delete",
-                component: () => import("@/components/delCourse.vue")
-              },
-              {
-                path: "courseLabList",
-                component: () => import("@/components/courseLabList.vue")
-              },
-              {
-                path: "courseLabReserve",
-                component: () => import("@/components/courseLabReserve.vue")
-              }
-            ]
+            path: "add",
+            component: () => import("@/components/labAdd.vue")
+          },
+          {
+            path: "delete",
+            component: () => import("@/components/labDelete.vue")
           }
         ]
       },
       {
-        path: "/teacher/students",
-        component: () => import("@/views/main/teacher/Student.vue")
+        path: "/teacher/courseManage",
+        component: () => import("@/views/main/teacher/courseManage.vue"),
+        children: [
+          {
+            path: "add",
+            component: () => import("@/components/addCourse.vue")
+          },
+          {
+            path: "",
+            component: () => import("@/components/editCourse.vue")
+          },
+          {
+            path: "edit",
+            component: () => import("@/components/courseEditSon.vue")
+          },
+          {
+            path: "delete",
+            component: () => import("@/components/delCourse.vue")
+          },
+          {
+            path: "courseLabList",
+            component: () => import("@/components/courseLabList.vue")
+          },
+          {
+            path: "courseLabReserve",
+            component: () => import("@/components/courseLabReserve.vue")
+          }
+        ]
       }
+      // {
+      //   path: "/teacher/students",
+      //   component: () => import("@/views/main/teacher/Student.vue")
+      // }
     ]
   },
-  // {
-  //   path: "/teacher/courseManage",
-  //   component: () => import("@/views/main/teacher/courseManage.vue"),
-  //   children: [
-  //     {
-  //       path: "add",
-  //       component: () => import("@/components/addCourse.vue")
-  //     },
-  //     {
-  //       path: "",
-  //       component: () => import("@/components/editCourse.vue")
-  //     },
-  //     {
-  //       path: "edit",
-  //       component: () => import("@/components/courseEditSon.vue")
-  //     },
-  //     {
-  //       path: "delete",
-  //       component: () => import("@/components/delCourse.vue")
-  //     },
-  //     {
-  //       path: "courseLabList",
-  //       component: () => import("@/components/courseLabList.vue")
-  //     },
-  //     {
-  //       path: "courseLabReserve",
-  //       component: () => import("@/components/courseLabReserve.vue")
-  //     }
-  //   ]
-  // },
-
   {
     path: "/:pathMatch(.*)*",
     redirect: { name: "main" }
@@ -107,15 +84,15 @@ const routes: Array<RouteRecordRaw> = [
 
 const menuList: Menu[] = [
   {
-    title: "教师功能模块",
+    title: "Teacher Module",
     children: [
       {
-        title: "课程预约管理",
+        title: "Course Manage",
         path: "/teacher/courseManage"
       },
       {
-        title: "实验室预约管理",
-        path: "/teacher/labManage"
+        title: "Laboratory Manage",
+        path: "/teacher/labReserve"
       }
     ]
   }

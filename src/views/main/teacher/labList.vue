@@ -3,35 +3,31 @@
     <el-table :data="tableData" style="width: 100%" max-height="250">
       <el-table-column
         prop="number"
-        label="实验室编号"
+        label="LabID"
         width="120"
       ></el-table-column>
       <el-table-column
         prop="computerNumber"
-        label="机器数量"
+        label="ComputerNumber"
         width="120"
       ></el-table-column>
-      <el-table-column label="操作" width="120">
-        <template #default="scope">
-          <el-button @click="OneReserve(scope)" type="text" size="small">
-            单节预约
-          </el-button>
-        </template>
+      <el-table-column label="Reserve" width="120">
+        <el-button @click="OneReserve(scope)" type="text" size="small">
+          Reserve
+        </el-button>
       </el-table-column>
-      <el-table-column label="课程表查询" width="120">
-        <template #default="scope">
-          <el-button
-            type="text"
-            @click="
-              open();
-              querySchedule(scope);
-              active = true;
-              labNum = scope.row.number;
-            "
-          >
-            查询
-          </el-button>
-        </template>
+      <el-table-column label="CheckSchedule" width="120">
+        <el-button
+          type="text"
+          @click="
+            open();
+            querySchedule(scope);
+            active = true;
+            labNum = scope.row.number;
+          "
+        >
+          Check
+        </el-button>
       </el-table-column>
     </el-table>
   </div>
@@ -40,7 +36,6 @@
 import { computed, defineComponent, ref, defineAsyncComponent } from "vue";
 import { State } from "@/store";
 import { useStore } from "vuex";
-import * as types from "@/store/VuexTypes";
 import router from "@/router";
 import { toRaw } from "@vue/reactivity"; //将Proxy代理对象转换为源对象
 import { ElMessage } from "element-plus";
@@ -67,7 +62,7 @@ export default defineComponent({
         .then(({ value }: any) => {
           if (value >= 1 && value <= 18) {
             router.push({
-              path: "/labReserve/showSchedule",
+              path: "/teacher/labReserve/showSchedule",
               query: { labNum: labNum.value, weekInput: value }
             });
           } else {
@@ -102,7 +97,7 @@ export default defineComponent({
     const OneReserve = (scope: any) => {
       const row = toRaw(scope.row); //将Proxy代理对象转换为源对象
       router.push({
-        path: "/labReserve/oneReserve",
+        path: "/teacher/labReserve/oneReserve",
         query: { labNum: row.number }
       });
     };

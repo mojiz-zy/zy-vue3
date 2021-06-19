@@ -1,3 +1,5 @@
+export const UPDATE_EXCEPTION = "GET_EXCEPTION";
+
 export const LOGIN = "LOGIN";
 export const LIST_TEACHERS = "LIST_TEACHERS";
 export const SET_LABLIST = "SET_LABLIST";

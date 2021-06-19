@@ -1,18 +1,15 @@
 <template>
-  <el-form :label-position="labelPosition" label-width="80px" :model="teacher">
-    <el-form-item label="实验室编号">
+  <el-form label-position="top" label-width="80px">
+    <el-form-item label="LabID">
       <el-input v-model="lab.number"></el-input>
     </el-form-item>
     <br />
-    <el-form-item label="实验室机器数量">
+    <el-form-item label="ComputerNmber">
       <el-input v-model="lab.computerNumber"></el-input>
     </el-form-item>
-    <el-button
-      @click="submit"
-      type="success"
-      icon="el-icon-check"
-      circle
-    ></el-button>
+    <el-button @click="submit" type="primary" icon="el-icon-upload2"
+      >SUBMIT</el-button
+    >
   </el-form>
 </template>
 
@@ -42,7 +39,7 @@ export default defineComponent({
       lablist?.forEach(l => {
         if (lab.value.number == l.number) {
           flag = false;
-          alert("实验室编号重复，请重新输入");
+          alert("Added lab successfully");
         }
       });
       if (

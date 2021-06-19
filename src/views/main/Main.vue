@@ -1,13 +1,12 @@
 <template>
-  <title>Main</title>
   <el-container class="main-container">
     <!-- 头部 -->
     <el-header>
       <div>
         <img src="" alt="" />
-        <span>实验室预约系统</span>
+        <span><h1>Lab Reservtion</h1></span>
       </div>
-      <el-button type="info" @click="logout">loginout</el-button>
+      <el-button type="info" @click="logout">logout</el-button>
     </el-header>
     <el-container>
       <!-- 侧边栏 -->
@@ -30,7 +29,13 @@ import { defineComponent } from "vue";
 import sidebar from "@/views/main/Sidebar.vue";
 
 export default defineComponent({
-  components: { sidebar }
+  components: { sidebar },
+  setup() {
+    const logout = () => window.sessionStorage.clear();
+    return {
+      logout
+    };
+  }
 });
 </script>
 <style scoped>
@@ -46,7 +51,7 @@ export default defineComponent({
   background-color: #333744;
 }
 .el-main {
-  background-color: #eaedf1;
+  background-color: #ffffff;
 }
 .main-container {
   height: 100vh;

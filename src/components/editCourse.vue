@@ -2,31 +2,35 @@
   <el-table :data="tableData" style="width: 100%" max-height="250">
     <el-table-column
       prop="courseId"
-      label="课程编号"
+      label="CourseID"
       width="120"
     ></el-table-column>
-    <el-table-column prop="name" label="课程名称" width="120"></el-table-column>
+    <el-table-column
+      prop="name"
+      label="CourseName"
+      width="200"
+    ></el-table-column>
     <el-table-column
       prop="studentNum"
-      label="学生数量"
-      width="120"
+      label="StumentNumber"
+      width="200"
     ></el-table-column>
-    <el-table-column prop="hours" label="学时数" width="120"></el-table-column>
-    <el-table-column fixed="right" label="操作" width="120">
+    <el-table-column prop="hours" label="Perid" width="120"></el-table-column>
+    <el-table-column fixed="right" label="Edit" width="120">
       <template #default="scope">
         <el-button
           @click="EditRow(scope.row.courseId)"
           type="text"
           size="small"
         >
-          编辑
+          Edit
         </el-button>
       </template>
     </el-table-column>
-    <el-table-column fixed="right" label="操作" width="120">
+    <el-table-column fixed="right" label="Reserve" width="120">
       <template #default="scope">
         <el-button @click="CourseReserve(scope)" type="text" size="small">
-          课程实验室预约
+          CourseReserve
         </el-button>
       </template>
     </el-table-column>
@@ -36,7 +40,6 @@
 import { useStore } from "vuex";
 import { computed, defineComponent } from "vue";
 import { State } from "@/store";
-import * as types from "Vuex";
 import { useRouter } from "vue-router";
 import { toRaw } from "@vue/reactivity";
 export default defineComponent({
@@ -51,14 +54,14 @@ export default defineComponent({
     const EditRow = (i: any) => {
       console.log(i);
       router.push({
-        path: "/course/edit",
+        path: "/teacher/courseManage/edit",
         query: { courseId: i }
       });
     };
     const CourseReserve = (i: any) => {
       const row = toRaw(i.row); //将Proxy代理对象转换为源对象
       router.push({
-        path: "/course/courseLabList",
+        path: "/teacher/courseManage/courseLabList",
         query: { studentNum: row.studentNum, courseId: row.courseId }
       });
     };

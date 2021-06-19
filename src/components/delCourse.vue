@@ -2,24 +2,28 @@
   <el-table :data="tableData" style="width: 100%" max-height="250">
     <el-table-column
       prop="courseId"
-      label="课程编号"
+      label="CourseID"
       width="120"
     ></el-table-column>
-    <el-table-column prop="name" label="课程名称" width="120"></el-table-column>
+    <el-table-column
+      prop="name"
+      label="CourseName"
+      width="120"
+    ></el-table-column>
     <el-table-column
       prop="studentNum"
-      label="学生数量"
-      width="120"
+      label="StumentNumber"
+      width="200"
     ></el-table-column>
-    <el-table-column prop="hours" label="学时数" width="120"></el-table-column>
-    <el-table-column fixed="right" label="操作" width="120">
+    <el-table-column prop="hours" label="Perid" width="120"></el-table-column>
+    <el-table-column fixed="right" label="Delete" width="120">
       <template #default="scope">
         <el-button
           @click="EditRow(scope.row.courseId)"
           type="text"
           size="small"
         >
-          删除
+          Delete
         </el-button>
       </template>
     </el-table-column>

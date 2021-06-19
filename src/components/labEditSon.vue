@@ -1,20 +1,20 @@
 <template>
-  <el-form :label-position="labelPosition" label-width="80px" :model="teacher">
-    <el-form-item label="实验室编号">
+  <el-form label-position="top" label-width="80px">
+    <el-form-item label="LabID">
       <el-input v-model="lab.number" disabled></el-input>
     </el-form-item>
     <br />
-    <el-form-item label="实验室机器数量">
+    <el-form-item label="ComputerNmber">
       <el-input v-model="lab.computerNumber"></el-input>
     </el-form-item>
-    <label for="">提交修改</label>
+    <label for="">Submit</label>
     <el-button
       @click="update"
       type="success"
       icon="el-icon-check"
       circle
     ></el-button>
-    <label for="">返回实验室列表</label>
+    <label for="">Back to Lablist</label>
     <el-button
       @click="back"
       type="danger"
@@ -57,7 +57,7 @@ export default defineComponent({
       store.dispatch(types.UPDATE_LAB, lab.value);
     };
     const back = () => {
-      router.push("/labManage");
+      router.push("/teacher/labReserve");
     };
     return {
       back,

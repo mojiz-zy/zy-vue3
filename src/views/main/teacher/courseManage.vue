@@ -1,12 +1,7 @@
 <template>
   <div class="rvwrap">
     <div class="elmenu">
-      <el-menu
-        :default-active="this.$route.path"
-        router
-        mode="horizontal"
-        class="elmenuinner"
-      >
+      <el-menu router mode="horizontal" class="elmenuinner">
         <el-menu-item
           v-for="(item, i) in labnavList"
           :key="i"
@@ -34,9 +29,9 @@ export default defineComponent({
   setup() {
     const store = useStore<State>();
     const labnavList = [
-      { name: "/courseManage", navItem: "课程列表" },
-      { name: "/courseManage/add", navItem: "添加课程" },
-      { name: "/courseManage/delete", navItem: "删除课程" }
+      { name: "/teacher/courseManage", navItem: "Course List" },
+      { name: "/teacher/courseManage/add", navItem: "Add Course" },
+      { name: "/teacher/courseManage/delete", navItem: "Delete Course" }
     ];
     return {
       labnavList

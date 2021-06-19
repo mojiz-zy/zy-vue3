@@ -1,24 +1,21 @@
 <template>
-  <el-form :label-position="labelPosition" label-width="80px" :model="teacher">
-    <el-form-item label="课程编号">
+  <el-form label-position="top" label-width="80px">
+    <el-form-item label="CourseID">
       <el-input v-model="course.courseId"></el-input>
     </el-form-item>
     <br />
-    <el-form-item label="课程名称">
+    <el-form-item label="CourseName">
       <el-input v-model="course.name"></el-input>
     </el-form-item>
-    <el-form-item label="学生数量">
+    <el-form-item label="StumentNumber">
       <el-input v-model="course.studentNum"></el-input>
     </el-form-item>
-    <el-form-item label="学时数">
+    <el-form-item label="Perid">
       <el-input v-model="course.hours"></el-input>
     </el-form-item>
-    <el-button
-      @click="submit"
-      type="success"
-      icon="el-icon-check"
-      circle
-    ></el-button>
+    <el-button @click="submit" type="primary" icon="el-icon-upload2"
+      >Submit</el-button
+    >
   </el-form>
 </template>
 
@@ -44,7 +41,6 @@ export default defineComponent({
       studentNum: "",
       hours: ""
     });
-    const courses = store.state.courses;
     const submit = () => {
       const flag = true;
       if (

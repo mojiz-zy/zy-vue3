@@ -8,20 +8,23 @@ import { setRole } from "@/role/Role";
 import { Teacher, Lab, Course } from "@/datasource/Type";
 
 export interface State {
-  menuList?: Menu[];
-  exception?: string;
-  teacherList?: Teacher[];
-  labList?: Lab[];
   role?: number | null;
+  menuList?: Menu[];
+  teacherList?: Teacher[];
   isLogin?: boolean;
+  labList?: Lab[];
+  exception: string;
   courses?: Course[];
 }
 
 const state: State = {
+  role: null,
+  exception: "Error!",
   menuList: [],
-  exception: "",
   teacherList: [],
-  labList: []
+  isLogin: false,
+  labList: [],
+  courses: []
 };
 
 const getters = {
@@ -29,7 +32,8 @@ const getters = {
     level.some(l => l == sessionStorage.getItem("role"))
 };
 const mutations = {
-  // [types.UPDATE_EXCEPTION]: (state: State, data: string) => (state.exception = data),
+  [types.UPDATE_EXCEPTION]: (state: State, data: string) =>
+    (state.exception = data),
   [types.LIST_TEACHERS]: (state: State, data: Teacher) =>
     state.teacherList?.push(data),
   [types.SET_LABLIST]: (state: State, data: Lab[]) => (state.labList = data),

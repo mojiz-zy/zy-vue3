@@ -1,19 +1,15 @@
 <template>
   <el-table :data="tableData" style="width: 100%" max-height="250">
-    <el-table-column
-      prop="number"
-      label="实验室编号"
-      width="120"
-    ></el-table-column>
+    <el-table-column prop="number" label="LabID" width="120"></el-table-column>
     <el-table-column
       prop="computerNumber"
-      label="实验室机器数量"
+      label="ComputerNmber"
       width="120"
     ></el-table-column>
-    <el-table-column fixed="right" label="操作" width="120">
+    <el-table-column fixed="right" label="Edit" width="120">
       <template #default="scope">
         <el-button @click="EditRow(scope.row.number)" type="text" size="small">
-          编辑
+          Edit
         </el-button>
       </template>
     </el-table-column>
@@ -37,7 +33,7 @@ export default defineComponent({
     const EditRow = (i: any) => {
       console.log(i);
       router.push({
-        path: "/labManage/edit",
+        path: "/teacher/labReserve/edit",
         query: { labNum: i }
       });
     };
