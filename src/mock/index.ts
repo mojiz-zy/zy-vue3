@@ -217,16 +217,6 @@ mock.onGet("getTeachers").reply(200, {
   data: {
     teachers: [
       {
-        name: "张伟",
-        title: "教授",
-        number: "100"
-      },
-      {
-        name: "朱东坡",
-        title: "副教授",
-        number: "101"
-      },
-      {
         name: "张剑腾",
         title: "教授",
         number: "102"
