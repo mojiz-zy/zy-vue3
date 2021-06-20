@@ -31,7 +31,10 @@ import sidebar from "@/views/main/Sidebar.vue";
 export default defineComponent({
   components: { sidebar },
   setup() {
-    const logout = () => window.sessionStorage.clear();
+    const logout = () => {
+      sessionStorage.clear();
+      window.location.href = "/login";
+    };
     return {
       logout
     };

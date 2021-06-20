@@ -5,7 +5,7 @@
       :data="tableData1"
       :row-class-name="tableRowClassName"
     >
-      <el-table-column prop="day" label="" width="180"></el-table-column>
+      <el-table-column prop="day" label="" width="80"></el-table-column>
     </el-table>
 
     <el-table
@@ -16,27 +16,27 @@
     >
       <el-table-column
         prop="order1"
-        label="第一节"
+        label="First Class"
         width="180"
       ></el-table-column>
       <el-table-column
         prop="order2"
-        label="第二节"
+        label="Scend Class"
         width="180"
       ></el-table-column>
       <el-table-column
         prop="order3"
-        label="第三节"
+        label="Third Class"
         width="180"
       ></el-table-column>
       <el-table-column
         prop="order4"
-        label="第四节"
+        label="Forth Class"
         width="180"
       ></el-table-column>
       <el-table-column
         prop="order5"
-        label="第五节"
+        label="Fifth Class"
         width="180"
       ></el-table-column>
     </el-table>
@@ -56,13 +56,13 @@ export default defineComponent({
     const store = useStore();
     let weekSchedule: any = [];
     const tableData1 = [
-      { day: "星期一" },
-      { day: "星期二" },
-      { day: "星期三" },
-      { day: "星期四" },
-      { day: "星期五" },
-      { day: "星期六" },
-      { day: "星期日" }
+      { day: "Monday" },
+      { day: "Tuesday" },
+      { day: "Wednesday" },
+      { day: "Thursday" },
+      { day: "Friday" },
+      { day: "Saturday" },
+      { day: "Sunday " }
     ];
     const tableData3: any = [
       {

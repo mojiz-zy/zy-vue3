@@ -91,7 +91,7 @@ const menuList: Menu[] = [
         path: "/teacher/courseManage"
       },
       {
-        title: "Laboratory Manage",
+        title: "Lab Reservation",
         path: "/teacher/labReserve"
       }
     ]

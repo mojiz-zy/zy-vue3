@@ -26,7 +26,7 @@ export default defineComponent({
   },
   setup() {
     const labnavList = [
-      { name: "/teacher/labReserve", navItem: "Laboratory" },
+      { name: "/teacher/labReserve", navItem: "Check Laboratory" },
       { name: "/teacher/labReserve/add", navItem: "Add Laboratory" },
       { name: "/teacher/labReserve/delete", navItem: "Delete Laboratory" }
     ];

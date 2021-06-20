@@ -15,6 +15,10 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: "/admin/backup",
         component: () => import("@/views/main/admin/Backup.vue")
+      },
+      {
+        path: "/admin",
+        component: () => import("@/views/main/admin/adminManage.vue")
       }
     ]
   },
@@ -28,10 +32,14 @@ const routes: Array<RouteRecordRaw> = [
 
 const menuList: Menu[] = [
   {
-    title: "系统管理模块",
+    title: "Admin Module",
     children: [
       {
-        title: "系统备份管理",
+        title: "Admin",
+        path: "/admin"
+      },
+      {
+        title: "BackUp",
         path: "/admin/backup"
       }
     ]

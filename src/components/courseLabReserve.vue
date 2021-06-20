@@ -1,5 +1,5 @@
 <template>
-  <el-select v-model="beginweek" filterable placeholder="请选择">
+  <el-select v-model="beginweek" filterable placeholder="Please">
     <el-option
       v-for="item in options"
       :key="item.value"
@@ -7,8 +7,8 @@
       :value="item.beginweek"
     ></el-option>
   </el-select>
-  <span>到</span>
-  <el-select v-model="endweek" filterable placeholder="请选择">
+  <span>TO</span>
+  <el-select v-model="endweek" filterable placeholder="Please">
     <el-option
       v-for="item in options4"
       :key="item.value"
@@ -16,7 +16,7 @@
       :value="item.endweek"
     ></el-option>
   </el-select>
-  <el-select v-model="day" filterable placeholder="请选择">
+  <el-select v-model="day" filterable placeholder="Please">
     <el-option
       v-for="item in options2"
       :key="item.value"
@@ -24,7 +24,7 @@
       :value="item.day"
     ></el-option>
   </el-select>
-  <el-select v-model="order" filterable placeholder="请选择">
+  <el-select v-model="order" filterable placeholder="Please ">
     <el-option
       v-for="item in options3"
       :key="item.value"
@@ -32,12 +32,15 @@
       :value="item.order"
     ></el-option>
   </el-select>
-  <el-button type="primary" icon="el-icon-search" @click="Query()">
-    点击查询预约状态
-  </el-button>
-  <el-tag type="danger" v-if="state">可预约</el-tag>
-  <el-tag type="info" v-else>不可预约</el-tag>
-  <el-button type="success" plain @click="ApplyOrder()">点击预约</el-button>
+  <br />
+  <el-button-group>
+    <el-button type="primary" icon="el-icon-search" @click="Query()">
+      Chek State
+    </el-button>
+    <!-- <el-tag type="danger" v-if="state">YES</el-tag>
+    <el-tag type="info" v-else>NO</el-tag> -->
+    <el-button type="primary" plain @click="ApplyOrder()">Reserve</el-button>
+  </el-button-group>
 </template>
 <script lang="ts">
 import { defineComponent, ref } from "vue";
@@ -98,7 +101,7 @@ export default defineComponent({
         time.order = order.value;
         queryState();
       } else {
-        alert("请选择具体时间！例：第几周到第几周，星期几，第几节");
+        alert("Please input details");
       }
     };
     const ApplyOrder = () => {
@@ -130,7 +133,7 @@ export default defineComponent({
       console.log("提交预约申请后", store.state.labList);
       store.dispatch(SUBMIT_LABLIST, store.state.labList);
       ElMessage.success({
-        message: "预约成功！",
+        message: "Success！",
         type: "success"
       });
     };

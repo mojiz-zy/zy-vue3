@@ -1,7 +1,7 @@
 <template>
   <div class="login-body">
     <div class="login-container">
-      <p>teacher: 1001; director: 1002; admin: 2002</p>
+      <!-- <p>teacher: 1001; director: 1002; admin: 2002</p> -->
       <div class="head">
         <h1 class="title">Login</h1>
         <!-- <div class="tips">实验室预约系统</div> -->
@@ -11,6 +11,7 @@
         class="login-form"
         :model="loginForm"
         ref="loginForm"
+        @keydown.enter="login()"
       >
         <el-form-item label="账户" prop="user.number">
           <el-input autocomplete="off" type="text" v-model="user.number" />
