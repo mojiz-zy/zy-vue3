@@ -37,8 +37,8 @@
     <el-button type="primary" icon="el-icon-search" @click="Query()">
       Chek State
     </el-button>
-    <!-- <el-tag type="danger" v-if="state">YES</el-tag>
-    <el-tag type="info" v-else>NO</el-tag> -->
+    <el-tag type="danger" v-if="state">YES</el-tag>
+    <el-tag type="info" v-else>NO</el-tag>
     <el-button type="primary" plain @click="ApplyOrder()">Reserve</el-button>
   </el-button-group>
 </template>

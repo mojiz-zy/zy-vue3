@@ -105,3 +105,4 @@ export function getRoleMenus() {
   routes.forEach(r => router.addRoute(r));
   return menuList;
 }
+
